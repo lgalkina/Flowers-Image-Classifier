@@ -18,7 +18,7 @@ def get_input_args_to_train():
      # Create Parse using ArgumentParser
     parser = argparse.ArgumentParser()
         
-    # Create 7 command line arguments using add_argument() from ArguementParser method
+    # Create 8 command line arguments using add_argument() from ArguementParser method
     parser.add_argument('--dir', type=str, default='./flowers/', help='path to image folder')
     parser.add_argument('--arch', type=str, default='vgg', help='name of CNN model architecture')
     parser.add_argument('--learning_rate', type=float, default=0.001, help='learning rate')
