@@ -11,7 +11,7 @@ The goals of this project is to classify flower images using a pretrained CNN mo
 
 To train a new network on a data set:
 
-- Run: python image_classifier.py 
+- Run: python train.py 
 - The current epoch, training loss, validation loss, and validation accuracy as the netowrk trains will be printed
 - Command line arguments: 
     - Image folder as --dir with default value './flowers'
@@ -23,7 +23,7 @@ To train a new network on a data set:
     - Processing unit --process_unit with default value 'gpu'
     
  To predict flower name from an image:
- - Run: python image_classifier.py 
+ - Run: python predict.py 
  - Command line arguments: 
     - Path to image to predict as --image with default value './flowers/test/1/image_06764.jpg'
     - Path to retrieve checkpoint to as --checkpoint_path with default value './checkpoint.pth'
