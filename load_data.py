@@ -5,6 +5,7 @@
 import torch
 from torchvision import datasets, transforms, models
 
+
 def load_data(image_dir):
     
     train_dir = image_dir + '/train'
@@ -26,10 +27,10 @@ def load_data(image_dir):
                                                                [0.229, 0.224, 0.225])])
 
     valid_transforms = transforms.Compose([transforms.Resize(256),
-                                                transforms.CenterCrop(224),
-                                                transforms.ToTensor(),
-                                                transforms.Normalize([0.485, 0.456, 0.406], 
-                                                                     [0.229, 0.224, 0.225])])
+                                           transforms.CenterCrop(224),
+                                           transforms.ToTensor(),
+                                           transforms.Normalize([0.485, 0.456, 0.406],
+                                                                [0.229, 0.224, 0.225])])
 
     # Load the datasets with ImageFolder
     train_image_dataset = datasets.ImageFolder(train_dir, transform=train_transforms)

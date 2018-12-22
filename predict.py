@@ -10,8 +10,9 @@ from process_checkpoint import load_checkpoint
 from torchvision import transforms
 from PIL import Image
 
+
 # a function that returns top k number of most probable choices that the network predicts
-def predict(image_path, model, topk = 5, process_unit = 'gpu'):
+def predict(image_path, model, topk=5, process_unit='gpu'):
     
     if process_unit == 'gpu' and torch.cuda.is_available():
         model.cuda()
@@ -33,6 +34,7 @@ def predict(image_path, model, topk = 5, process_unit = 'gpu'):
 
     return probability.topk(topk)
 
+
 # open and trasform image and return it as a tensor
 def process_image(image_path):
     image = Image.open(image_path)
@@ -47,6 +49,7 @@ def process_image(image_path):
     tensor_image = transform_image(image)
     
     return tensor_image
+
 
 def main():
     print("Image predictor starts")
@@ -69,5 +72,9 @@ def main():
     print('Flower: {}'.format(class_names[0]))
     print('Probability: {}'.format(probabilities[0][0]))
     
+    print(class_names)
+    print(probabilities[0])
+
+
 if __name__ == "__main__":
     main()

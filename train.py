@@ -9,6 +9,7 @@ from build_network import build_network
 from process_checkpoint import save_checkpoint
 from PIL import Image
 
+
 def train(model, train_loader, valid_loader, criterion, optimizer, epochs, process_unit = 'gpu'):
     
     print_every = 40
@@ -61,7 +62,8 @@ def train(model, train_loader, valid_loader, criterion, optimizer, epochs, proce
 
                 # Make sure training is back on
                 model.train()
-        
+
+
 # validate
 def validate(model, valid_loader, criterion, device):
     valid_loss = 0
@@ -76,6 +78,7 @@ def validate(model, valid_loader, criterion, device):
     
     return valid_loss, accuracy
 
+
 def main():    
     # retrieve command line arugments
     in_arg = get_input_args_to_train()
@@ -85,7 +88,7 @@ def main():
     print("Data for training, validation, and testing is loaded")
     
     # define neural network
-    model, criterion, optimizer = build_network(class_to_idx, in_arg.arch, in_arg.dropout, in_arg.learning_rate)    
+    model, criterion, optimizer = build_network(class_to_idx, in_arg.hidden_units, in_arg.arch, in_arg.dropout, in_arg.learning_rate)    
     print("Network is built")
     
     # train neural network
@@ -93,8 +96,9 @@ def main():
     print("Network is trained")
     
     # save checkpoint
-    save_checkpoint(in_arg.arch, in_arg.learning_rate, in_arg.epochs, in_arg.dropout, model, in_arg.checkpoint_path)    
+    save_checkpoint(in_arg.arch, in_arg.learning_rate, in_arg.epochs, in_arg.dropout, in_arg.hidden_units, model, in_arg.checkpoint_path)    
     print("Checkpoint is saved")
-    
+
+
 if __name__ == "__main__":
     main()
