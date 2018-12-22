@@ -17,6 +17,7 @@ To train a new network on a data set:
     - Image folder as --dir with default value './flowers'
     - CNN model architecture as --arch with default value 'vgg'
     - Learning rate as --learning_rate with default value 0.001
+    - Hidden units as --hidden_units with default value [512], pass several times to add multiple hidden units
     - Dropout as --dropout with default value 0.5
     - Number of epochs as --epochs with default value 20
     - Path to save checkpoint to as --checkpoint_path with default value './checkpoint.pth'
